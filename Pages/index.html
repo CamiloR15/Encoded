@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador 9k</title>
+    <link rel="stylesheet" href="../Assets/Style/Style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    
+</head>
+
+<body>
+    <div class="container-main">
+        <img src="../Assets/Images/logo.svg" alt="" id="logo">
+        
+        <div class="container-input">
+            <textarea name="" id="text-input" placeholder="Ingrese texto aqui"></textarea>
+            <p>&#x1F6C8; Solo letras minusculas y sin acentos.</p>
+            <div class="container-buttons">
+                <button id="button1" onclick="encriptar()">Encriptar!</button>
+                <button id="button2" onclick="desencriptar ()">Desencriptar!</button>
+            </div>
+        </div>
+
+        <div class="container-output">
+            <div class="output" id="text">
+                <img src="../Assets/Images/Muñeco.svg" id="petersito" alt="">
+                <p id="nothing">Ningun Mensaje fue encontrado</p>
+                <p id="enter">Ingrese el texto que desees encriptar o desencriptar.</p>
+            </div>
+            <button id="copy" onclick="copy()">Copiar</button>
+        </div>      
+
+    </div>
+
+</body>
+
+<script>
+var entrada =document.getElementById("text-input"); 
+var salida = document.getElementById("text");
+
+function encriptar (){
+    var texto=entrada.value;
+    var a, e, i, o, u;
+
+e= texto.replaceAll("e", "enter");
+i= e.replaceAll("i","imes");
+a=i.replaceAll("a", "ai");
+o=a.replaceAll("o", "ober");
+u=o.replaceAll("u", "ufat");
+    salida.innerHTML=u
+}
+       
+
+function desencriptar (){
+    var texto=entrada.value;
+    var a, e, i, o, u;
+
+e= texto.replaceAll("enter", "e");
+i= e.replaceAll("imes","i");
+a=i.replaceAll("ai", "a");
+o=a.replaceAll("ober", "o");
+u=o.replaceAll("ufat", "u");
+salida.innerHTML=u
+}   
+
+    function copy() {
+    navigator.clipboard.writeText(salida.innerHTML)
+    alert("copied!");
+}
+   
+</script>
+
+</html>
